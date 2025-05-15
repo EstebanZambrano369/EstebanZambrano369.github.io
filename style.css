@@ -73,6 +73,8 @@ body {
     background-repeat: no-repeat;
     width: 20%;
     margin-top: 0px;
+    position: relative;
+    overflow: hidden;
 }
 
 .content-item:last-child {
@@ -82,12 +84,10 @@ body {
 .content-item::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0; /* equivale a top: 0; left: 0; right: 0; bottom: 0; */
     background: rgba(0, 0, 0, 0.13); 
-    z-index: 1;
+    z-index: 0; /* detrás del contenido */
+    pointer-events: none; /* no bloquea clics ni eventos */
 }
 
 /*Propiedades del texto de los items */
@@ -115,23 +115,23 @@ body {
     font-family: 'oswald', sans-serif; /* Fuente personalizada */
     text-align: center;    /* Alineación del texto */
     margin: 20px 0; 
-    position: relative;
     z-index: 2;
 }
 
 .autor h3{
-    background: linear-gradient(to bottom, rgb(39, 39, 39), rgba(0, 28, 32, 1));
+    background: linear-gradient(to bottom, rgb(46, 52, 46), rgb(6, 23, 9));
     width: 100%;
     padding-left: 30px;
     padding-top: 58px;
     padding-bottom: 8px;
     font-size: 1.2em; 
-    color: #bdbdbd;        /* Color del texto */
+    color: #d2ffe8;        /* Color del texto */
     font-weight: 400;
     position: relative;
     z-index: 2;
     box-sizing: border-box;
     margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .fixed-content{
@@ -143,7 +143,7 @@ body {
 }
 
 .fixed-content h2{
-    padding-top: 0px;
+    padding-top: 0;
     -webkit-text-stroke: 0.2px rgb(0, 0, 0);
     font-size: 1.5em; 
     color: #ffffff;        /* Color del texto */
@@ -218,7 +218,6 @@ body {
 
 .bloque {
     margin-bottom: 50px;
-    
 }
 
 .cuerpo ul{
@@ -253,7 +252,7 @@ body {
 .autor {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 .autor.derecha {
